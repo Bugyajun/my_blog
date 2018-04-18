@@ -9,4 +9,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blogs', include(blogs.urls,namespace='blogs')),
+    url(r'',include('comments.urls',namespace='comments'))
 ]

@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from blogs import views
 # Create your models here.
 
 
@@ -24,12 +25,15 @@ class airticle(models.Model):
     category = models.ForeignKey(Category)
     tag = models.ManyToManyField(Tag,blank=True)
     author = models.ForeignKey(User)
+    details = models.TextField(default='')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
+        p = reverse('blogs:detail',kwargs={'pk':self.pk})
         return reverse('blogs:detail',kwargs={'pk':self.pk})
+
 
 
 
