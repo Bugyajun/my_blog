@@ -31,7 +31,7 @@ class airticle(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        p = reverse('blogs:detail',kwargs={'pk':self.pk})
+        #p = reverse('blogs:detail',kwargs={'pk':self.pk})
         return reverse('blogs:detail',kwargs={'pk':self.pk})
 
 

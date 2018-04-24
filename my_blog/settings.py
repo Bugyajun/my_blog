@@ -25,7 +25,7 @@ SECRET_KEY = 'lge^yuoe!-sb$47a+1hual$1k=u5$%h)n4uy%5sx2r7)6)@&3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogs',
-    'comments'
+    'comments',
+    'Users'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,6 +54,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'my_blog.urls'
+#AUTH_USER_MODEL = 'Users.users'
 
 TEMPLATES = [
     {
@@ -71,10 +73,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'my_blog.wsgi.application'
+APP_SLASH = True
 
 
 # Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+# https://docs.djangoprojectf.com/en/1.8/ref/settings/#databases
 
 # DATABASES = {
 #     'default': {

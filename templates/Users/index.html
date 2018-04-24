@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://unpkg.com/mobi.css/dist/mobi.min.css">
+
+</head>
+<body>
+    <div class="flex-center">
+        <div class="container">
+            <div>
+                <h1 class="logo"><a href="{%  url 'index' %}" my first django</h1>
+                {% if request.user.is_authenticated %}
+                    <p>您已经成功登录了，请享受您的旅途！
+                        <button class="btn btn-default">
+                            <a href="{% url 'logout' %}?next=users/index">sign out</a>
+                        </button>
+                        <p>您现在可以查看博客以及发表评论了
+                        <button class="btn btn-default">
+                            <a href="{% url 'blogs:index' %}">博客一览</a>
+                        </button>
+                    </p>
+                    {% else  %}
+                    <p>您还没有登录，请先</p>
+                        <div>
+                        <button class="btn btn-default">
+                            <a href="{% url 'login' %}?next={% url 'Users:index' %}" >登录</a>
+                        </button>
+                        <span>或者</span>
+                        <button class="btn btn-default">
+                            <a href="{% url 'Users:register' %}" >注册</a>
+                        </button>
+                        </div>
+
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
